@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "strict": true,
+        "module": "es2015",
+        "moduleResolution": "node",
+        "target": "es5",
+        "allowSyntheticDefaultImports": true,
+        "experimentalDecorators": true,
+        "noImplicitAny": false,
+        "sourceMap": false,
+        "outDir": "js",
+        "lib": [
+            "es2016",
+            "dom"
+        ]
+    }
+}
