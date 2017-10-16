@@ -14,4 +14,11 @@ export default class HelloWorld extends Vue {
   onmore(title) {
     alert(title);
   }
+
+  checkObject = {
+    checkName:function(){
+        alert('检测名称')
+    }
+  }
+
 }
