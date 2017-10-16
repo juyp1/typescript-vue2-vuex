@@ -1,0 +1,90 @@
+$design:1080;
+
+$recent: 108;
+
+@function strip-unit($number){
+  @return $number / ($number*0 +1);
+}
+
+@function px2rem( $px ){
+  @return strip-unit($px) /$recent * 1rem;
+}
+
+@mixin border($direction, $width, $color) {
+  @if $direction==all {
+    border-bottom-style: solid;
+    border-bottom-color: $color;
+    border-top-style: solid;
+    border-top-color: $color;
+    border-left-style: solid;
+    border-left-color: $color;
+    border-right-style: solid;
+    border-right-color: $color;
+    @if $width>2 {
+      border-right-width: px2rem($width);
+      border-left-width: px2rem($width);
+      border-top-width: px2rem($width);
+      border-bottom-width: px2rem($width);
+    }
+    @else {
+      border-right-width: strip-unit($width)*1px;
+      border-left-width: strip-unit($width)*1px;
+      border-top-width: strip-unit($width)*1px;
+      border-bottom-width: strip-unit($width)*1px;
+    }
+  }
+  @else {
+    @if $direction==left {
+      border-left-style: solid;
+      border-left-color: $color;
+      @if $width>2 {
+        border-left-width: px2rem($width);
+      }
+      @else {
+        border-left-width: strip-unit($width)*1px;
+      }
+    }
+    @else if $direction==right {
+      border-right-style: solid;
+      border-right-color: $color;
+      @if $width>2 {
+        border-right-width: px2rem($width);
+      }
+      @else {
+        border-right-width: strip-unit($width)*1px;
+      }
+    }
+    @else if $direction==top {
+      border-top-style: solid;
+      border-top-color: $color;
+      @if $width>2 {
+        border-top-width: px2rem($width);
+      }
+      @else {
+        border-top-width: strip-unit($width)*1px;
+      }
+    }
+    @else if $direction==bottom {
+      border-bottom-style: solid;
+      border-bottom-color: $color;
+      @if $width>2 {
+        border-bottom-width: px2rem($width);
+      }
+      @else {
+        border-bottom-width: strip-unit($width)*1px;
+      }
+    }
+  }
+}
+
+@mixin border-radius($number) {
+  border-top-left-radius: px2rem($number);
+  border-top-right-radius: px2rem($number);
+  border-bottom-right-radius: px2rem($number);
+  border-bottom-left-radius: px2rem($number);
+}
+
+$headerHeight: 1.3333rem;
+$footerHeight: px2rem(150); 
+$mainColor: #0DBC75;
+$statusBarHeight: 25px;

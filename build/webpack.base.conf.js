@@ -10,7 +10,7 @@ function resolve(dir) {
 
 module.exports = {
     entry: {
-        land: './src/app/main/land/main.ts'
+        land: './src/app/land/main.ts'
     },
     output: {
         path: config.build.assetsRoot,
