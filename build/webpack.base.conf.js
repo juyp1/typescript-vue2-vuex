@@ -3,14 +3,15 @@ const path = require('path')
 const utils = require('./utils')
 const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
-
+const webpack = require('webpack');
 function resolve(dir) {
     return path.join(__dirname, '..', dir)
 }
 
 module.exports = {
     entry: {
-        land: './src/app/land/main.ts'
+        land: './src/app/land/main.ts',
+        finance: './src/app/finance/main.ts'
     },
     output: {
         path: config.build.assetsRoot,
@@ -73,5 +74,18 @@ module.exports = {
                 loaders: ["style", "css", "sass"]
             },
         ]
-    }
+    },
+
+    plugins: [
+      new webpack.SourceMapDevToolPlugin({
+          columns: false,
+          filename: '[name].js.map',
+          exclude: ['vendor.js']
+      }),
+      new webpack.optimize.CommonsChunkPlugin({
+          name: 'common',
+          chunks: ['land', 'finance'],
+          minChunks: 2
+      })
+  ],
 }

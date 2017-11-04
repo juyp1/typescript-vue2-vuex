@@ -1,0 +1,46 @@
+.box {
+    width: 720px;
+    overflow: hidden;
+}
+
+.service_menu_icon {
+    width: 100px;
+    height: 100px;
+    margin: 20px;
+    float: left;
+}
+
+.service_menu_icon {
+    background: url(../../assets/img.png) no-repeat;
+}
+
+.service_menu_icon_01 {
+    background-position: -0 0;
+}
+
+.service_menu_icon_02 {
+    background-position: -150px 0px;
+}
+
+.service_menu_icon_021 {
+    background-position: -600px -300px;
+}
+
+.service_menu_icon_03 {
+    background-position: -300px 0px;
+}
+
+.service_menu_icon_04 {
+    background-position: 0px -150px;
+}
+
+
+/*竖着第一行*/
+
+.service_menu_icon_05 {
+    background-position: 0px -300px;
+}
+
+.service_menu_icon_06 {
+    background-position: 0px -450px;
+}

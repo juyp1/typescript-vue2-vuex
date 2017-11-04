@@ -3,7 +3,7 @@ import Router, { NavigationGuard, RouteConfig, RawLocation, Route } from 'vue-ro
 import SigninIntercepter from './intercepter/signinIntercepter';
 import MyComponent from '../components/hello/helloWorld.vue'
 import NewsComponent from '../components/news/news.vue'
-import rootComponent from '../components/root-component/root-component.vue'
+import rootComponent from '../../framework/root-component/root-component.vue'
 Vue.use(Router)
 
 // export default new Router({
@@ -27,10 +27,10 @@ let childrenRoutes = [
     name: 'Hello',
     component: MyComponent,
   }, {
-    path: '/news',
+    path: 'news',
     name: 'news',
     component: NewsComponent,
-    meta: { signin: true }
+    
   }
 ]
 //检测是否为必登录的路由

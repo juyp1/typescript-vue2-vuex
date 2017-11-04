@@ -1,16 +1,25 @@
-// The Vue build version to load with the `import` command
-// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
-import Vue from 'vue'
-import App from './App.vue'
+
+import { CreateElement } from 'vue/types/vue';
+import Vue from 'vue';
 import VueResource from 'vue-resource';
 import router from './routers/index';
 import store from './store/index';
-/* eslint-disable no-new */
+import Main from './main.vue';
+import HttpInterceptor from './api/HttpInterceptor';
+
 Vue.use(VueResource);
-new Vue({
-  el: '#app',
-  router,
+
+//配置是否允许 vue-devtools 检查代码
+if (location.host.indexOf('m.b2cf.cn') === 0) {
+  Vue.config.devtools = false;
+}
+Vue.config.silent = false;
+
+let vm = new Vue({
   store,
-  template: '<App/>',
-  components: { App }
-})
+  router,
+  render: (createElement: CreateElement) => createElement(Main),
+  beforeCreate: function(){
+    new HttpInterceptor();
+  }
+}).$mount('#app');
